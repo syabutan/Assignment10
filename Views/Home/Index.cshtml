@@ -1,0 +1,31 @@
+﻿@{
+}
+
+@model IndexViewModel
+
+
+<h1 class="text-center">Bowler Contact Info: @(Model.CurrentTeam == null ? "Home" : Model.CurrentTeam)</h1>
+
+
+
+@foreach (var x in Model.Bowlers)
+{
+    <div class="card text-center">
+        <div class="badge-light">
+        <strong>@x.BowlerFirstName @x.BowlerMiddleInit @x.BowlerLastName </strong>
+        </div>
+        <p>Address: @x.BowlerAddress @x.BowlerCity @x.BowlerState @x.BowlerZip </p>
+        <p>Phone: @x.BowlerPhoneNumber</p>
+    </div>
+
+}
+
+<div page-info="@Model.PageNumberingInfo"
+     page-classes-enabled="true"
+     page-url-teamname="@Model.CurrentTeam"
+     page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     class="btn-group pull-right m-1">
+
+</div>
